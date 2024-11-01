@@ -1,10 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import React, { createContext } from 'react';
 import "./App.css";
-
 import HomePage from "./pages/HomePage.jsx";
 import ViewProductPage from "./pages/ViewProductPage.jsx";
 
+export const UserNameContext = createContext({});
+
 function App() {
+  
   const userData = {
     username: "John",
     avatar: "https://placedog.net/100/100",
@@ -12,6 +15,7 @@ function App() {
   };
 
   return (
+    <UserNameContext.Provider value={userData}>
     <div className="App">
       <Router>
         <Routes>
@@ -20,6 +24,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </UserNameContext.Provider>
   );
 }
 
