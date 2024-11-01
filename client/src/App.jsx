@@ -15,16 +15,16 @@ function App() {
   };
 
   return (
-    <UserNameContext.Provider value={userData}>
     <div className="App">
+      <UserNameContext.Provider value={userData}>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/view/:id" element={<ViewProductPage />} />
         </Routes>
       </Router>
+      </UserNameContext.Provider>
     </div>
-    </UserNameContext.Provider>
   );
 }
 
